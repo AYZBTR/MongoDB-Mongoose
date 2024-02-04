@@ -8,6 +8,8 @@ router.get('/', function(req, res) {
   
 });
 
+//1. Creating
+//Creating user in Database using Mongodb/mongoose!
 router.get('/create', async function(req, res) {
   const createUser = await userModel.create({      
     username: "AYZBTR",    //inside this userMode.create always holds object.
@@ -16,5 +18,8 @@ router.get('/create', async function(req, res) {
   });
   res.send(createUser);
 });
+
+//2.Reading
+
 
 module.exports = router;
