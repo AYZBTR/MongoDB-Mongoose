@@ -10,16 +10,19 @@ router.get('/', function(req, res) {
 
 //1. Creating
 //Creating user in Database using Mongodb/mongoose!
-router.get('/create', async function(req, res) {
+ router.get('/create', async function(req, res) {
   const createUser = await userModel.create({      
     username: "AYZBTR",    //inside this userMode.create always holds object.
     age: 21,   //we passed object according to our schema which we created before in users.js
     name: "Aayush Bhattarai"
   });
   res.send(createUser);
-});
+}); 
 
 //2.Reading
-
+router.get('/allUsers', async function(req,res){
+ let allUsers = await userModel.find();
+ res.send(allUsers);
+});
 
 module.exports = router;
