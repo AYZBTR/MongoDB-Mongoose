@@ -19,10 +19,25 @@ router.get('/', function(req, res) {
   res.send(createUser);
 }); 
 
-//2.Reading
+//2.Reading (find())
 router.get('/allUsers', async function(req,res){
  let allUsers = await userModel.find();
  res.send(allUsers);
 });
+
+//a.Reading (findOne())
+//findOne ==> helps to find particular users...
+router.get('/find', async function(req,res){
+  let allUsers = await userModel.findOne({username:"AYZBTR"});
+  res.send(allUsers);
+ });
+
+ //3. Delete
+ router.get('/delete', async function(req, res){
+  let deletedUser = await userModel.findOneAndDelete({
+    username:"AYZBTR"
+  });
+  res.send(deletedUser);
+ });
 
 module.exports = router;
